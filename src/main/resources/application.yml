@@ -1,0 +1,31 @@
+spring:
+  redis:
+    cache:
+      port: 6379
+      host: 127.0.0.1
+      database: 1
+      password: douqu
+    auth-cache:
+      port: 6777
+      host: 127.0.0.1
+      database: 1
+      password: douqu
+
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: douqu2020
+    password: douqu2020
+    virtual-host: /douqu
+    #开启发送确认模式
+    publisher-confirms: true
+    listener:
+      direct:
+        acknowledge-mode: manual
+        default-requeue-rejected: true
+        prefetch: 5
+      simple:
+        acknowledge-mode: manual
+        default-requeue-rejected: true
+        prefetch: 5
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect

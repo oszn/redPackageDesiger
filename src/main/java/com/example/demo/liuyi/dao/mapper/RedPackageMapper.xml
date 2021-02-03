@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.liuyi.dao.mapper.RedPackageMapper">
+
+<insert id="createRedPackage" keyColumn="id" parameterType="com.example.demo.liuyi.dao.entry.RedPackageDo">
+    insert into create_red_package_record
+    (id,uid,money,divide,expire,create_date)
+    values(#{id},#{uid},#{money},#{divid},#{expire},#{date});
+</insert>
+    <select id="isexpier" resultType="long">
+        SELECT id from create_red_package_record where id=#{id} and expire+create_date>#{expire};
+    </select>
+</mapper>
